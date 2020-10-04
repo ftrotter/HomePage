@@ -1,0 +1,7 @@
+<?php
+/*
+	Lets set some standard configuration values once so that we can ensure that we can change them in just one place and they will work...
+
+*/
+	
+	$APP_ENV = 'development';

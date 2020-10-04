@@ -1,0 +1,80 @@
+{
+    "name": "careset/eden",
+    "description": "CareSet Project that starts with Eden",
+    "keywords": [
+    ],
+    "license": "Proprietary",
+    "type": "project",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:CareSet/ZermeloBladeGraph.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:CareSet/CareSetJWTAuthClient.git"
+        }
+
+    ],
+    "require": {
+        "php": ">=7.2.0",
+        "careset/caresetjwtauthclient": "dev-master",
+        "careset/durc": ">=1.0",
+        "careset/zermelo": ">=1.0",
+        "careset/zermelo_installer": ">=1.0",
+        "careset/zermelobladecard": ">=1.0",
+        "careset/zermelobladegraph": ">=1.0",
+        "careset/zermelobladetabular": ">=1.0",
+        "fideloper/proxy": "^4.0",
+        "ftrotter/two-table-monolog-mysql": "dev-master",
+        "laravel/framework": "^6.0",
+        "laravel/helpers": "^1.1",
+        "owen-it/laravel-auditing": "^10.0",
+        "phpunit/phpunit": "^7.3",
+        "proai/laravel-handlebars": "~1.9",
+        "pusher/pusher-php-server": "^4.0",
+	"kub-at/php-simple-html-dom-parser": "^1.9",
+        "superbalist/flysystem-google-storage": "^7.0",
+        "vlucas/phpdotenv": "^3.3"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "classmap": [
+            "database/seeds",
+            "database/factories"
+        ],
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate"
+        ],
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover"
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
+    }
+}
